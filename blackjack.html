@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Jack</title>
+</head>
+
+<style>
+
+body {
+
+    background-image: url(https://wallpapercosmos.com/w/full/6/9/3/1142771-3840x2160-desktop-4k-poker-wallpaper-image.jpg);
+    background-size: cover;
+    text-align: center;
+}
+
+img {
+    width: 150px;
+    height: 200px;
+}
+
+h2 {
+    color:azure;
+    }
+.spielfeld{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+}
+.karte {
+    width: 150;
+    height: 100;
+}
+
+</style>
+
+<body>
+<<<<<<< Updated upstream
+        <h2>Bank: <span id="pc"> </span></h2>
+    
+        <h2>Ich: <span id="spieler"> </span></h2>
+=======
+
+
+
+    <h2>Bank: <span id="bank"></span></h2>
+    <div id="d-karten">
+        <img  id="back" src="cards/BACK.png">
+    </div>
+
+    <h2>Ich: <span id="i-sum"></span></h2>
+    <div id="i-karten"></div>
+
+    <button id="Start" onclick="karten_austeilen()">Spiel starten</button>
+    <br>
+    <br>
+    <button id="Ziehen" onclick="karte_ziehen()">Ziehen</button>
+    <button id="Keine Karte mehr" onclick="passen()">Pass</button>
+>>>>>>> Stashed changes
+
+
+        <div id="pc" class="spielfeld">
+            <div class="karte" src="cards/"></div>
+        </div>
+        <div id="spieler" class="spielfeld">
+            <div class="karte" src="cards/"></div>
+        </div>
+      
+        <button id="startButton" onclick="karten_austeilen()">Spiel starten</button>
+        <br>
+        <br>
+        <button id="ziehenButton" onclick="karte_ziehen(); pruefe_spielstand(); pruefe_bank();">Ziehen</button>
+        <button id="passenButton" onclick="passen(); pruefe_bank();">Passen</button>
+        <br>
+        <br>
+        <button onclick="pruefe_spielstand()">Spielstand anzeigen</button>
+
+        <script src="BlackJack.js"></script>
+
+</body>
+</html>
