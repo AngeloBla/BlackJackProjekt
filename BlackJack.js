@@ -13,12 +13,6 @@ const spielfeld_spieler = document.getElementById("spieler");
 
 let summeSpieler = 0;
 
-ziehenButton.addEventListener("click", function() {
-    karte_ziehen();
-    pruefe_spielstand();
-    pruefe_bank();
-});
-
 
 function spiel_starten() {
     for (let i = 0; i < 2; i++) {
