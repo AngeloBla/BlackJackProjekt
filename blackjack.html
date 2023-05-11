@@ -4,83 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="blackjack.css">
     <title>Black Jack</title>
 </head>
 
-<style>
-
-body {
-
-    background-image: url(https://wallpapercosmos.com/w/full/6/9/3/1142771-3840x2160-desktop-4k-poker-wallpaper-image.jpg);
-    background-size: cover;
-    text-align: center;
-}
-
-img {
-    float: auto;
-    width: 150px;
-    height: 200px;
-}
-
-h2 {
-    color:azure;
-}
-
-p {
-    color: azure;
-    font-size: large;
-}
-
-.spielfeld {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.karte {
-    width: 150;
-    height: 100;
-}
-
-button {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #971666;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px  #c4a5b8;
-}
-
-button:hover {background-color: #9a5ba0}
-
-button:active {
-  background-color: #8e3e8a;
-  box-shadow: 0 5px  #971666;
-  transform: translateY(4px);
-}
-
-
-
-</style>
-
 <body>
 
-    <h2> Black Jack </h2>
-    <p>“Willkommen auf unserer Black Jack-Webseite! Hier kannst du das klassische Kartenspiel online spielen und dein Glück versuchen. 
-        <br> Setze dich an den virtuellen Tisch und fordere den Dealer heraus. <br> Viel Spaß beim Spielen!”</p>
-<br>
-    <div>
-        <h2>Bank: <span id="pc"> </span></h2>
-    </div>
-    <div>
-        <h2>Ich: <span id="spieler"> </span></h2>
-    </div>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+          <span class="close" onclick="closePopup()">&times;</span>
+          <p> <b>Willkommen auf unserer Black Jack-Webseite! </b> <br>
+             Hier kannst du das klassische Kartenspiel online spielen und dein Glück versuchen. Setze dich an den virtuellen Tisch und fordere den Dealer heraus. Viel Spaß beim Spielen!</p>
+        </div>
+      </div>
+      
+
+    <h1> Black Jack </h1>
+
+    <h2> Bank: <span id="pc"> </span>
+    <img src="cards/BACK.png" alt=""></h2>
+
+    <h2> Ich: <span id="spieler"> </span>
+    <img src="cards/BACK.png" alt=""></h2>
 
     <div id="pc" class="spielfeld">
             <div class="karte" src="cards/"></div>
@@ -90,14 +35,17 @@ button:active {
             <div class="karte" src="cards/"></div>
     </div>
 
-        <button id="startButton" onclick="karten_austeilen(); karten_spieler();">Spiel starten</button>
+        <button id="startButton" onclick="karten_austeilen();">Spiel starten</button>
         <br>
         <br>
-        <button id="ziehenButton" onclick="karte_ziehen(); pruefe_bank();">Ziehen</button>
+        <button id="ziehenButton" onclick="karte_ziehen();">Ziehen</button>
         <button id="passenButton" onclick="passen(); karte_ziehen_Bank();">Passen</button>
         <br>
         <br>
+
         <button onclick="pruefe_spielstand();">Spielstand anzeigen</button>
+
+
         <button onclick="neu_beginnen()">Neu beginnen</button>
 
         <h1 id="stand"></h1>

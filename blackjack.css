@@ -1,0 +1,97 @@
+body {
+
+    background-image: url(https://wallpapercosmos.com/w/full/6/9/3/1142771-3840x2160-desktop-4k-poker-wallpaper-image.jpg);
+    background-size: cover;
+    text-align: center;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    box-shadow: 0 9px  #c4a5b8;
+  }
+  
+  .popup-content {
+    background-color: #971666;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  
+
+img {
+    float: auto;
+    width: 150px;
+    height: 200px;
+}
+
+h1 {
+    font-size: xx-large;
+    color:azure;
+}
+
+h2 {
+    color:azure;
+    float: auto;
+}
+
+p {
+    color: azure;
+    font-size: large;
+}
+
+.spielfeld {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.karte {
+    width: 150;
+    height: 100;
+}
+
+button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #971666;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px  #c4a5b8;
+}
+
+button:hover {background-color: #9a5ba0}
+
+button:active {
+  background-color: #8e3e8a;
+  box-shadow: 0 5px  #971666;
+  transform: translateY(4px);
+}
