@@ -88,3 +88,7 @@ function passen() {
   deck.splice(randomIndex, 1);
   spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
 }
+
+
+
+ö
