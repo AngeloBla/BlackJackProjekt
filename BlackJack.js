@@ -26,14 +26,31 @@ function karten_austeilen() {
     spielfeld_spieler.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
   }
   
+ziehenButton.addEventListener("click", function() {
+    karte_ziehen();
+    pruefe_spielstand();
+    pruefe_bank();
+});
+
+
+function karten_austeilen() {
+    for (let i = 0; i < 2; i++) {
+      const randomIndex = Math.floor(Math.random() * deck.length);
+      deck.splice(randomIndex, 1);
+      bank.push(deck[randomIndex]);
+      spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
     }
-  
+  }
+
+function karten_spieler(){
     for (let i = 0; i < 2; i++) {
       const randomIndex = Math.floor(Math.random() * deck.length);
       bank.push(deck[randomIndex]); 
       deck.splice(randomIndex, 1);
       spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
     }
+}
+  
 
 function karte_ziehen() {
   const randomIndex = Math.floor(Math.random() * deck.length);
@@ -58,6 +75,29 @@ function pruefe_spielstand() {
 }
 
 
+}
+
+function pruefe_spielstand() {
+    let summeSpieler = 0;
+    for (let i = 0; i < spieler.length; i++) {
+      summeSpieler += spieler[i];
+    }
+    if (summeSpieler > 21) {
+      console.log("Sie haben verloren. Ihre Karten haben einen Wert von " + summeSpieler);
+      alert("Sie haben verloren. Ihre Karten haben einen Wert von " + summeSpieler);
+    } else if (summeSpieler === 21) {
+      console.log("Sie haben GEWONNEN! Ihre Karten haben einen Wert von " + summeSpieler);
+      alert("Sie haben GEWONNEN! Ihre Karten haben einen Wert von " + summeSpieler);
+    } else if (summeSpieler < 21) {
+      console.log("Unter 21. Möchten Sie eine weitere Karte ziehen?");
+      let ziehen = confirm("Ihr aktueller Spielstand ist " + summeSpieler + ". Möchten Sie eine weitere Karte ziehen?");
+      if (ziehen) {
+        karte_ziehen();
+        pruefe_spielstand();
+      }
+    }
+}
+  
 function karte_ziehen_Bank() {
   const randomIndex = Math.floor(Math.random() * deck.length);
   bank.push(deck[randomIndex]);
@@ -111,4 +151,12 @@ function werte_vergleichen() {
   } else {
     alert("Sie haben verloren! Ihre Karten haben einen Wert von " + summeSpieler);
   }
+}
+
+
+function passen() {
+  const randomIndex = Math.floor(Math.random() * deck.length);
+  bank.push(deck[randomIndex]);
+  deck.splice(randomIndex, 1);
+  spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
 }
