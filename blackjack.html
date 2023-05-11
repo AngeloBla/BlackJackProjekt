@@ -11,54 +11,60 @@
 
 body {
 
-    background-image: url(https://wallpapercosmos.com/w/full/6/9/3/1142771-3840x2160-desktop-4k-poker-wallpaper-image.jpg);
-    background-size: cover;
-    text-align: center;
+background-image: url(https://wallpapercosmos.com/w/full/6/9/3/1142771-3840x2160-desktop-4k-poker-wallpaper-image.jpg);
+background-size: cover;
+text-align: center;
 }
 
 img {
-    width: 150px;
-    height: 200px;
+width: 150px;
+height: 200px;
 }
 
 h2 {
-    color:azure;
-    }
-.spielfeld{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+color:azure;
 }
+
+.spielfeld {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
 .karte {
-    width: 150;
-    height: 100;
+width: 150;
+height: 100;
+}
+
+button {
+display: inline-block;
+padding: 15px 25px;
+font-size: 24px;
+cursor: pointer;
+text-align: center;
+text-decoration: none;
+outline: none;
+color: #fff;
+background-color: #971666;
+border: none;
+border-radius: 15px;
+box-shadow: 0 9px  #c4a5b8;
+}
+
+button:hover {background-color: #9a5ba0}
+
+button:active {
+background-color: #8e3e8a;
+box-shadow: 0 5px  #971666;
+transform: translateY(4px);
 }
 
 </style>
 
 <body>
-<<<<<<< Updated upstream
         <h2>Bank: <span id="pc"> </span></h2>
     
         <h2>Ich: <span id="spieler"> </span></h2>
-=======
-
-
-
-    <h2>Bank: <span id="bank"></span></h2>
-    <div id="d-karten">
-        <img  id="back" src="cards/BACK.png">
-    </div>
-
-    <h2>Ich: <span id="i-sum"></span></h2>
-    <div id="i-karten"></div>
-
-    <button id="Start" onclick="karten_austeilen()">Spiel starten</button>
-    <br>
-    <br>
-    <button id="Ziehen" onclick="karte_ziehen()">Ziehen</button>
-    <button id="Keine Karte mehr" onclick="passen()">Pass</button>
->>>>>>> Stashed changes
 
 
         <div id="pc" class="spielfeld">
@@ -71,11 +77,14 @@ h2 {
         <button id="startButton" onclick="karten_austeilen()">Spiel starten</button>
         <br>
         <br>
-        <button id="ziehenButton" onclick="karte_ziehen(); pruefe_spielstand(); pruefe_bank();">Ziehen</button>
-        <button id="passenButton" onclick="passen(); pruefe_bank();">Passen</button>
+        <button id="ziehenButton" onclick="karte_ziehen(); pruefe_bank();">Ziehen</button>
+        <button id="passenButton" onclick="pruefe_bank();">Passen</button>
         <br>
         <br>
-        <button onclick="pruefe_spielstand()">Spielstand anzeigen</button>
+        <button onclick="Spielstand()">Spielstand anzeigen</button>
+        <button onclick="neu_beginnen()">Neu beginnen</button>
+
+        <h1 id="stand"></h1>
 
         <script src="BlackJack.js"></script>
 
