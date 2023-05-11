@@ -11,6 +11,8 @@ const bank = [];
 const spielfeld_pc = document.getElementById("pc");
 const spielfeld_spieler = document.getElementById("spieler");
 
+let summeSpieler = 0;
+
 ziehenButton.addEventListener("click", function() {
     karte_ziehen();
     pruefe_spielstand();
@@ -18,22 +20,17 @@ ziehenButton.addEventListener("click", function() {
 });
 
 
-function karten_austeilen() {
-    for (let i = 0; i < 2; i++) {
-      const randomIndex = Math.floor(Math.random() * deck.length);
-      deck.splice(randomIndex, 1);
-      bank.push(deck[randomIndex]);
-      spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
-    }
-  }
-
-function karten_spieler(){
+function spiel_starten() {
     for (let i = 0; i < 2; i++) {
       const randomIndex = Math.floor(Math.random() * deck.length);
       deck.splice(randomIndex, 1);
       spieler.push(deck[randomIndex]);
       spielfeld_spieler.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
     }
+    const randomIndex = Math.floor(Math.random() * deck.length);
+    deck.splice(randomIndex, 1);
+    bank.push(deck[randomIndex]);
+    spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';  //Möglicher Konflikt mit +?
 }
   
 
@@ -44,27 +41,43 @@ function karte_ziehen() {
   spielfeld_spieler.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
 }
 
-function pruefe_spielstand() {
-    let summeSpieler = 0;
+
+function Spielstand() {
+    summeSpieler = 0;
     for (let i = 0; i < spieler.length; i++) {
       summeSpieler += spieler[i];
     }
     if (summeSpieler > 21) {
-      console.log("Sie haben verloren. Ihre Karten haben einen Wert von " + summeSpieler);
       alert("Sie haben verloren. Ihre Karten haben einen Wert von " + summeSpieler);
     } else if (summeSpieler === 21) {
-      console.log("Sie haben GEWONNEN! Ihre Karten haben einen Wert von " + summeSpieler);
       alert("Sie haben GEWONNEN! Ihre Karten haben einen Wert von " + summeSpieler);
     } else if (summeSpieler < 21) {
-      console.log("Unter 21. Möchten Sie eine weitere Karte ziehen?");
-      let ziehen = confirm("Ihr aktueller Spielstand ist " + summeSpieler + ". Möchten Sie eine weitere Karte ziehen?");
-      if (ziehen) {
-        karte_ziehen();
-        pruefe_spielstand();
-      }
+      alert(summeSpieler + " Möchten Sie eine weitere Karte ziehen?");
     }
+    document.getElementById("stand").innerHTML = summeSpieler;
 }
-  
+
+
+function passen() {
+  pruefe_bank();
+}
+
+
+function pruefe_bank() {
+  let summeBank = 0;
+  for (let i = 0; i < bank.length; i++) {
+    summeBank += bank[i];
+  }
+  if (summeBank === 21) {
+    gewinner_ermitteln(summeBank, summeSpieler);
+  } else if (summeBank < 17) {
+    karte_ziehen_Bank();
+    pruefe_bank();
+  } else if (summeBank > 17) {
+    gewinner_ermitteln(summeBank, summeSpieler);
+  }
+}
+
 function karte_ziehen_Bank() {
   const randomIndex = Math.floor(Math.random() * deck.length);
   bank.push(deck[randomIndex]);
@@ -72,19 +85,13 @@ function karte_ziehen_Bank() {
   spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
 }
 
-function pruefe_bank() {
-  let summeBank = 0;
-  for (let i = 0; i < bank.length; i++) {
-    summeBank += bank[i];
-  }
-  if (summeBank < 18) {
-    karte_ziehen_Bank();
-  }
-}
 
-function passen() {
-  const randomIndex = Math.floor(Math.random() * deck.length);
-  bank.push(deck[randomIndex]);
-  deck.splice(randomIndex, 1);
-  spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
+function gewinner_ermitteln(summeBank, summeSpieler) {
+  if (summeBank > summeSpieler) {
+    alert(summeSpieler + " Sie haben verloren...");
+  } else if (summeBank < summeSpieler) {
+    alert(summeSpieler + " Sie haben gewonnen!");
+  } else if (summeBank === summeSpieler) {
+    alert(summeSpieler + " Unentschieden");
+  }
 }
