@@ -2,11 +2,11 @@ const Bube = 10;
 const Dame = 10;
 const König = 10;
 const Ass = 11;
-const deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, Bube, Dame, König, Ass];
-const deck_img = ["2-C.png", "3-C.png", "4-C.png", "5-C.png", "6-C.png", "7-C.png", "8-C.png", "9-C.png", "10-C.png", "J-C.png", "Q-C.png", "K-C.png", "A-C.png"]
+let deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, Bube, Dame, König, Ass];
+let deck_img = ["2-C.png", "3-C.png", "4-C.png", "5-C.png", "6-C.png", "7-C.png", "8-C.png", "9-C.png", "10-C.png", "J-C.png", "Q-C.png", "K-C.png", "A-C.png"]
 
-const spieler = [];
-const bank = [];
+let spieler = [];
+let bank = [];
 
 const spielfeld_pc = document.getElementById("pc");
 const spielfeld_spieler = document.getElementById("spieler");
@@ -33,13 +33,13 @@ function berechne_summe_karten(karten) {
 function spiel_starten() {
   for (let i = 0; i < 2; i++) {
     const randomIndex = Math.floor(Math.random() * deck.length);
-    deck.splice(randomIndex, 1);
     spieler.push(deck[randomIndex]);
+    deck.splice(randomIndex, 1);
     spielfeld_spieler.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
   }
   const randomIndex = Math.floor(Math.random() * deck.length);
-  deck.splice(randomIndex, 1);
   bank.push(deck[randomIndex]);
+  deck.splice(randomIndex, 1);
   spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';  //Möglicher Konflikt mit +?
   summeSpieler = berechne_summe_karten(spieler);
   Spielstand();
