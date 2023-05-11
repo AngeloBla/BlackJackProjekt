@@ -11,6 +11,14 @@ const bank = [];
 const spielfeld_pc = document.getElementById("pc");
 const spielfeld_spieler = document.getElementById("spieler");
 
+window.onload = function() {
+  document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
 let summeSpieler = 0;
 
 
