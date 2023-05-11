@@ -5,42 +5,43 @@ const Ass = 11;
 const deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, Bube, Dame, König, Ass];
 const deck_img = ["2-C.png", "3-C.png", "4-C.png", "5-C.png", "6-C.png", "7-C.png", "8-C.png", "9-C.png", "10-C.png", "J-C.png", "Q-C.png", "K-C.png", "A-C.png"]
 
+const spieler = [];
+const bank = [];
 
 const spielfeld_pc = document.getElementById("pc");
 const spielfeld_spieler = document.getElementById("spieler");
 
 ziehenButton.addEventListener("click", function() {
-  karte_ziehen();
-  pruefe_spielstand();
-  pruefe_bank();
+    karte_ziehen();
+    pruefe_spielstand();
+    pruefe_bank();
 });
 
-let spieler = [];
-let bank = [];
- 
-function karten_austeilen() {
 
+function karten_austeilen() {
     for (let i = 0; i < 2; i++) {
       const randomIndex = Math.floor(Math.random() * deck.length);
-      spieler.push(deck[randomIndex]);
       deck.splice(randomIndex, 1);
+      bank.push(deck[randomIndex]);
       spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
     }
-  
+  }
+
+function karten_spieler(){
     for (let i = 0; i < 2; i++) {
       const randomIndex = Math.floor(Math.random() * deck.length);
-      bank.push(deck[randomIndex]);
       deck.splice(randomIndex, 1);
       spieler.push(deck[randomIndex]);
       spielfeld_spieler.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
     }
-  }
+}
+  
 
 function karte_ziehen() {
   const randomIndex = Math.floor(Math.random() * deck.length);
   spieler.push(deck[randomIndex]);
   deck.splice(randomIndex, 1);
-  spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
+  spielfeld_spieler.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
 }
 
 function pruefe_spielstand() {
@@ -62,8 +63,8 @@ function pruefe_spielstand() {
         pruefe_spielstand();
       }
     }
-  }
-
+}
+  
 function karte_ziehen_Bank() {
   const randomIndex = Math.floor(Math.random() * deck.length);
   bank.push(deck[randomIndex]);
@@ -78,13 +79,12 @@ function pruefe_bank() {
   }
   if (summeBank < 18) {
     karte_ziehen_Bank();
-    pruefe_spielstand();
   }
 }
 
-function neu_beginnen() {
-  spieler = [];
-  bank = [];
-  karten_austeilen();
+function passen() {
+  const randomIndex = Math.floor(Math.random() * deck.length);
+  bank.push(deck[randomIndex]);
+  deck.splice(randomIndex, 1);
+  spielfeld_pc.innerHTML += '<img src="cards/' + deck_img[randomIndex] + '">';
 }
-
