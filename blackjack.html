@@ -10,41 +10,46 @@
 
 <body>
 
+    <!-- Popup-Fenster für Willkommensnachricht -->
     <div id="popup" class="popup">
         <div class="popup-content">
           <span class="close" onclick="closePopup()">&times;</span>
-          <p> <b>Willkommen auf unserer Black Jack-Webseite! </b> <br>
+          <p><b>Willkommen auf unserer Black Jack-Webseite!</b><br>
              Hier kannst du das klassische Kartenspiel online spielen und dein Glück versuchen. Setze dich an den virtuellen Tisch und fordere den Dealer heraus. Viel Spaß beim Spielen!</p>
         </div>
-      </div>
-      
-
-    <h1> Black Jack </h1>
-
-    <h2> Bank: <span id="pc"> </span>
-    <img src="cards/BACK.png" alt=""></h2>
-
-    <h2> Ich: <span id="spieler"> </span>
-    <img src="cards/BACK.png" alt=""></h2>
-
-
-        <div id="pc" class="spielfeld">
-            <div class="karte" src="cards/"></div>
-        </div>
-        <div id="spieler" class="spielfeld">
-            <div class="karte" src="cards/"></div>
     </div>
 
-        <button id="startButton" onclick="spiel_starten();">Spiel starten</button>
-        <br>
-        <br>
-        <button id="ziehenButton" onclick="karte_ziehen();">Ziehen</button>
-        <button id="passenButton" onclick="pruefe_bank();">Passen</button>
-        <br>
-        <br>
+    <h1>Black Jack</h1>
 
-        <h1 id="stand"> Punkte </h1>
+    <h2>Bank: <span id="pc"></span>
+        <img src="cards/BACK.png" alt="">
+    </h2>
+
+    <h2>Ich: <span id="spieler"></span>
+        <img src="cards/BACK.png" alt="">
+    </h2>
+
+    <!-- Spielfeld für die Bankkarten -->
+    <div id="pc" class="spielfeld">
+        <div class="karte" src="cards/"></div>
     </div>
+
+    <!-- Spielfeld für die Spielerkarten -->
+    <div id="spieler" class="spielfeld">
+        <div class="karte" src="cards/"></div>
+    </div>
+
+    <!-- Buttons für Spielaktionen -->
+    <button id="startButton" onclick="spiel_starten();">Spiel starten</button>
+    <br>
+    <br>
+    <button id="ziehenButton" onclick="karte_ziehen();">Ziehen</button>
+    <button id="passenButton" onclick="pruefe_bank();">Passen</button>
+    <br>
+    <br>
+
+    <!-- Anzeige des aktuellen Spielstands -->
+    <h1 id="stand">Punkte</h1>
 
 <script src="./BlackJack.js"></script>
 
