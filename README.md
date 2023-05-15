@@ -30,6 +30,6 @@ Funktionen werden verwendet, um das Spiel zu starten, Karten zu ziehen, den Spie
 Das HTML-Dokument enthält die Spielfläche, den Spielstand und Schaltflächen für die Interaktion mit dem Spiel.
 
 Loslegen
-Um das Spiel zu spielen, öffnen Sie einfach die index.html-Datei in einem Webbrowser Ihrer Wahl.
+Um das Spiel zu spielen, öffnen Sie einfach die blackjack.html-Datei in einem Webbrowser Ihrer Wahl.
 
 Genießen Sie das Blackjack-Spiel und viel Spaß beim Spielen!
