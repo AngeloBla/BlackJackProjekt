@@ -1,98 +1,106 @@
+/* Hintergrundbild und Ausrichtung */
 body {
-
-    background-image: url(https://wallpapercosmos.com/w/full/6/9/3/1142771-3840x2160-desktop-4k-poker-wallpaper-image.jpg);
-    background-size: cover;
-    text-align: center;
-    background-attachment: fixed;
+  background-image: url(https://wallpapercosmos.com/w/full/6/9/3/1142771-3840x2160-desktop-4k-poker-wallpaper-image.jpg);
+  background-size: cover; /* Hintergrundbild an Fenstergröße anpassen */
+  text-align: center; /* Zentrierung des Inhalts */
+  background-attachment: fixed; /* Hintergrundbild fixieren */
 }
 
+/* Popup-Styling */
 .popup {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    box-shadow: 0 9px  #c4a5b8;
-  }
-  
-  .popup-content {
-    background-color: #971666;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 70%;
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  
+  display: none; /* Popup standardmäßig ausblenden */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* Scrollbalken anzeigen, falls Inhalt zu groß ist */
+  box-shadow: 0 9px #c4a5b8; /* Schatten um das Popup */
+}
 
+.popup-content {
+  background-color: #971666; /* Hintergrundfarbe des Popups */
+  margin: 15% auto; /* Abstand vom oberen Rand und zentrierte Ausrichtung */
+  padding: 20px; /* Innenabstand des Popups */
+  border: 1px solid #888; /* Rahmen um das Popup */
+  width: 70%; /* Breite des Popups */
+}
+
+.close {
+  color: #aaa; /* Farbe des Schließen-Symbols */
+  float: right; /* Schließen-Symbol rechts ausrichten */
+  font-size: 28px; /* Schriftgröße des Schließen-Symbols */
+  font-weight: bold; /* Fettdruck des Schließen-Symbols */
+}
+
+.close:hover,
+.close:focus {
+  color: black; /* Farbe des Schließen-Symbols beim Hovern oder Fokus */
+  text-decoration: none; /* Unterstreichung des Schließen-Symbols entfernen */
+  cursor: pointer; /* Zeiger-Cursor bei Hover */
+}
+
+/* Bilder */
 img {
-    float: auto;
-    width: 100px;
-    height: 150px;
+  float: auto; /* Standard-Ausrichtung der Bilder */
+  width: 100px; /* Breite der Bilder */
+  height: 150px; /* Höhe der Bilder */
 }
 
+/* Überschrift "h1" */
 h1 {
-    font-size: xx-large;
-    color:azure;
+  font-size: xx-large; /* Schriftgröße der Überschrift */
+  color: azure; /* Textfarbe der Überschrift */
 }
 
+/* Überschrift "h2" */
 h2 {
-    color:azure;
-    float: auto;
+  color: azure; /* Textfarbe der Überschrift */
+  float: auto; /* Standard-Ausrichtung der Überschrift */
 }
 
+/* Absätze "p" */
 p {
-    color: azure;
-    font-size: large;
+  color: azure; /* Textfarbe der Absätze */
+  font-size: large; /* Schriftgröße der Absätze */
 }
 
+/* Spielfeld-Container */
 .spielfeld {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex; /* Flexbox-Layout verwenden */
+  flex-wrap: wrap; /* Zeilenumbruch bei Bedarf */
+  justify-content: center; /* Zentrierte Ausrichtung des Inhalts */
 }
 
+/* Karten */
 .karte {
-    width: 150;
-    height: 100;
+  width: 150px; /* Breite der Karten */
+  height: 100px; /* Höhe der Karten */
 }
 
+/* Buttons */
 button {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #971666;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px  #c4a5b8;
+  display: inline-block; /* Button als Inline-Element anzeigen */
+  padding: 15px 25px; /* Innenabstand des Buttons */
+  font-size: 24px; /* Schriftgröße des Buttons */
+  cursor: pointer; /* Zeiger-Cursor beim Hover über den Button */
+  text-align: center; /* Zentrierte Ausrichtung des Button-Textes */
+  text-decoration: none; /* Keine Unterstreichung für den Button-Text */
+  outline: none; /* Kein Fokus-Rahmen beim Klicken auf den Button */
+  color: #fff; /* Textfarbe des Buttons */
+  background-color: #971666; /* Hintergrundfarbe des Buttons */
+  border: none; /* Kein Rahmen um den Button */
+  border-radius: 15px; /* Abrundung der Button-Ecken */
+  box-shadow: 0 9px #c4a5b8; /* Schatten um den Button */
 }
 
-button:hover {background-color: #9a5ba0}
+button:hover {
+  background-color: #9a5ba0; /* Hintergrundfarbe des Buttons beim Hover */
+}
 
 button:active {
-  background-color: #8e3e8a;
-  box-shadow: 0 5px  #971666;
-  transform: translateY(4px);
+  background-color: #8e3e8a; /* Hintergrundfarbe des Buttons beim Klicken */
+  box-shadow: 0 5px #971666; /* Schatten um den Button beim Klicken */
+  transform: translateY(4px); /* Einen leichten Aufwärtsschub-Effekt beim Klicken erzeugen */
 }
